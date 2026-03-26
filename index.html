@@ -58,6 +58,15 @@ body::before {
   animation: fadeUp 1s ease-out;
 }
 
+.logo-img {
+  max-width: clamp(280px, 50vw, 480px);
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  filter: drop-shadow(0 4px 24px rgba(0,0,0,0.4));
+}
+
 .logo-ki {
   font-family: 'Space Mono', monospace;
   font-weight: 700;
@@ -350,9 +359,7 @@ body::before {
 <!-- HERO -->
 <section class="hero">
   <div class="logo">
-    <span class="logo-ki">KI</span>
-    <span class="logo-und">und</span>
-    <span class="logo-currywurst">Curry&shy;wurst</span>
+    <img src="https://d2xsxph8kpxj0f.cloudfront.net/104275646/dod8nfNjdPzq4oCsvGcDkM/ki-cw-logo_471518b5.png" alt="KI und Currywurst" class="logo-img">
   </div>
   <p class="hero-tagline">Eine kuratierte Gesprächsreihe in Düsseldorf.<br>Kein Tech-Hype. Keine Buzzwords.<br>Sondern kulturelle Einordnung.</p>
   <div class="hero-scroll">Scroll</div>
