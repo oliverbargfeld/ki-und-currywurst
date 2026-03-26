@@ -58,14 +58,6 @@ body::before {
   animation: fadeUp 1s ease-out;
 }
 
-.logo-img {
-  max-width: clamp(280px, 45vw, 460px);
-  width: 100%;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-}
-
 .logo-ki {
   font-family: 'Space Mono', monospace;
   font-weight: 700;
@@ -358,42 +350,9 @@ body::before {
 <!-- HERO -->
 <section class="hero">
   <div class="logo">
-    <svg id="logo-svg" viewBox="0 0 400 280" xmlns="http://www.w3.org/2000/svg" class="logo-img" role="img" aria-label="KI und Currywurst">
-      <!-- KI (Rot) -->
-      <text x="28" y="108" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="112" fill="#CC4A28" letter-spacing="-3">KI</text>
-
-      <!-- Gabel (sauberer einzelner Pfad) -->
-      <g transform="translate(282, 18)" stroke="#F5F0E8" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round">
-        <!-- Linke Zinke -->
-        <line x1="4"  y1="0" x2="4"  y2="72"/>
-        <!-- Mittlere Zinke -->
-        <line x1="18" y1="0" x2="18" y2="72"/>
-        <!-- Rechte Zinke -->
-        <line x1="32" y1="0" x2="32" y2="72"/>
-        <!-- Bogen der Gabel -->
-        <path d="M4,72 Q4,95 18,95 Q32,95 32,72"/>
-        <!-- Stiel -->
-        <line x1="18" y1="95" x2="18" y2="175"/>
-      </g>
-
-      <!-- "und"-Box (dunkel, weißer Text) -->
-      <rect x="28" y="122" width="58" height="132" rx="4" fill="#2A1A0E"/>
-      <text
-        x="57" y="198"
-        font-family="Arial, sans-serif"
-        font-weight="800"
-        font-size="42"
-        fill="#F5F0E8"
-        text-anchor="middle"
-        dominant-baseline="middle"
-        transform="rotate(-90, 57, 188)"
-      >und</text>
-
-      <!-- CURRY (Senfgelb) -->
-      <text x="102" y="182" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="68" fill="#DC9A1E">CURRY</text>
-      <!-- WURST (Senfgelb) -->
-      <text x="102" y="255" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="68" fill="#DC9A1E">WURST</text>
-    </svg>
+    <span class="logo-ki">KI</span>
+    <span class="logo-und">und</span>
+    <span class="logo-currywurst">Curry&shy;wurst</span>
   </div>
   <p class="hero-tagline">Eine kuratierte Gesprächsreihe in Düsseldorf.<br>Kein Tech-Hype. Keine Buzzwords.<br>Sondern kulturelle Einordnung.</p>
   <div class="hero-scroll">Scroll</div>
