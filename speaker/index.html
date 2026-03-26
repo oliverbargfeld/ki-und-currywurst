@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KI und Currywurst — Speaker-Info</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --curry: #C8912E;
+  --curry-dark: #A67420;
+  --curry-light: #F5E6C8;
+  --ink: #1A1A18;
+  --paper: #F5F0E6;
+  --paper-dark: #EDE5D5;
+  --rust: #B5452A;
+  --forest: #2D5F3A;
+  --cream: #FAF7F0;
+  --text: #2C2C2A;
+  --text-muted: #6B6A65;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--paper);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+/* Paper texture overlay */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1000;
+}
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 24px;
+  position: relative;
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.logo {
+  text-align: center;
+  margin-bottom: 48px;
+  animation: fadeUp 1s ease-out;
+}
+
+.logo-ki {
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+  font-size: clamp(80px, 15vw, 160px);
+  line-height: 0.85;
+  letter-spacing: -0.03em;
+  color: var(--curry);
+  display: block;
+}
+
+.logo-und {
+  font-family: 'Libre Baskerville', serif;
+  font-weight: 400;
+  font-style: italic;
+  font-size: clamp(20px, 3.5vw, 36px);
+  color: var(--paper);
+  opacity: 0.6;
+  display: block;
+  margin: 8px 0;
+  letter-spacing: 0.15em;
+}
+
+.logo-currywurst {
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+  font-size: clamp(36px, 7vw, 76px);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  color: var(--paper);
+  display: block;
+}
+
+.hero-tagline {
+  font-family: 'Libre Baskerville', serif;
+  font-size: clamp(16px, 2.2vw, 22px);
+  font-style: italic;
+  color: var(--paper);
+  opacity: 0.5;
+  text-align: center;
+  max-width: 500px;
+  line-height: 1.6;
+  animation: fadeUp 1s ease-out 0.3s both;
+}
+
+.hero-badge {
+  display: inline-block;
+  margin-top: 32px;
+  padding: 8px 20px;
+  border: 1px solid var(--curry);
+  color: var(--curry);
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  animation: fadeUp 1s ease-out 0.5s both;
+}
+
+.hero-scroll {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--paper);
+  opacity: 0.3;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* ── INTRO ── */
+.intro {
+  padding: 120px 24px;
+  max-width: 720px;
+  margin: 0 auto;
+  animation: fadeUp 0.8s ease-out;
+}
+
+.intro p {
+  font-family: 'Libre Baskerville', serif;
+  font-size: clamp(18px, 2.5vw, 24px);
+  line-height: 1.8;
+  color: var(--text);
+  margin-bottom: 28px;
+}
+
+.intro p:first-child::first-line {
+  font-weight: 700;
+}
+
+.intro .accent {
+  color: var(--rust);
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* ── EINLADUNG ── */
+.einladung {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 80px 24px;
+  position: relative;
+}
+
+.einladung::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--curry), transparent);
+}
+
+.einladung-inner {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.einladung-label {
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--curry);
+  margin-bottom: 28px;
+}
+
+.einladung-headline {
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+  font-size: clamp(24px, 4vw, 38px);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--paper);
+  margin-bottom: 32px;
+}
+
+.einladung-text {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.85;
+  color: var(--paper);
+  opacity: 0.7;
+}
+
+.einladung-text p {
+  margin-bottom: 20px;
+}
+
+.einladung-text p:last-child {
+  margin-bottom: 0;
+}
+
+.einladung-text strong {
+  color: var(--paper);
+  opacity: 1;
+  font-weight: 700;
+}
+
+/* ── SECTION HEADER ── */
+.section-header {
+  padding: 80px 24px 40px;
+  text-align: center;
+}
+
+.section-header h2 {
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+  font-size: clamp(28px, 5vw, 48px);
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.section-header .sub {
+  font-family: 'Libre Baskerville', serif;
+  font-style: italic;
+  font-size: 16px;
+  color: var(--text-muted);
+  margin-top: 12px;
+}
+
+/* ── THEMEN GRID ── */
+.themen {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px 24px 80px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+@media (max-width: 768px) {
+  .themen { grid-template-columns: 1fr; }
+}
+
+.thema {
+  background: var(--cream);
+  border: 1px solid rgba(0,0,0,0.08);
+  padding: 40px 36px;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.thema:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+}
+
+.thema-nr {
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+
+.thema-problem {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+  line-height: 1.5;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+.thema-problem b {
+  color: var(--text);
+  font-weight: 700;
+}
+
+.thema h3 {
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+  font-size: clamp(20px, 2.5vw, 26px);
+  line-height: 1.2;
+  color: var(--ink);
+  margin-bottom: 8px;
+  letter-spacing: -0.02em;
+}
+
+.thema .subline {
+  font-family: 'Libre Baskerville', serif;
+  font-style: italic;
+  font-size: 15px;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 24px;
+}
+
+.thema-label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin: 20px 0 8px;
+}
+
+.thema-desc {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text);
+}
+
+.thema-who {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+.thema-who strong {
+  color: var(--text);
+}
+
+/* Color accents per theme */
+.thema:nth-child(1) { border-top: 4px solid var(--curry); }
+.thema:nth-child(2) { border-top: 4px solid var(--rust); }
+.thema:nth-child(3) { border-top: 4px solid var(--ink); }
+.thema:nth-child(4) { border-top: 4px solid var(--forest); }
+
+.thema:nth-child(1) .thema-nr { color: var(--curry-dark); }
+.thema:nth-child(2) .thema-nr { color: var(--rust); }
+.thema:nth-child(3) .thema-nr { color: var(--ink); }
+.thema:nth-child(4) .thema-nr { color: var(--forest); }
+
+/* ── FORMAT ── */
+.format {
+  background: var(--paper-dark);
+  padding: 80px 24px;
+}
+
+.format-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.format h2 {
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+  font-size: clamp(24px, 4vw, 36px);
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  margin-bottom: 48px;
+  text-align: center;
+}
+
+.format-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px 48px;
+}
+
+@media (max-width: 600px) {
+  .format-grid { grid-template-columns: 1fr; }
+}
+
+.format-item {
+  padding-left: 20px;
+  border-left: 3px solid var(--curry);
+}
+
+.format-item h3 {
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--ink);
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+
+.format-item p {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+/* ── HALTUNG ── */
+.haltung {
+  padding: 80px 24px;
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.haltung-text {
+  font-family: 'Libre Baskerville', serif;
+  font-size: clamp(18px, 2.5vw, 24px);
+  line-height: 1.7;
+  color: var(--text);
+  margin-bottom: 28px;
+}
+
+.haltung-details {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 2;
+}
+
+/* ── FOOTER ── */
+.footer {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 80px 24px;
+  text-align: center;
+}
+
+.footer-logo {
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+  font-size: 24px;
+  color: var(--curry);
+  margin-bottom: 8px;
+}
+
+.footer-logo span {
+  color: var(--paper);
+  opacity: 0.6;
+  font-size: 14px;
+  font-family: 'Libre Baskerville', serif;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.footer-meta {
+  font-size: 13px;
+  color: var(--paper);
+  opacity: 0.35;
+  margin-top: 24px;
+  line-height: 1.8;
+}
+
+.footer-meta a {
+  color: var(--curry);
+  text-decoration: none;
+  opacity: 1;
+}
+
+.footer-hashtag {
+  font-family: 'Space Mono', monospace;
+  font-size: 14px;
+  color: var(--curry);
+  margin-top: 32px;
+  letter-spacing: 0.05em;
+}
+
+.footer-hinweis {
+  margin-top: 40px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  font-family: 'Libre Baskerville', serif;
+  font-style: italic;
+  font-size: 13px;
+  color: var(--paper);
+  opacity: 0.35;
+  line-height: 1.8;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="logo">
+    <span class="logo-ki">KI</span>
+    <span class="logo-und">und</span>
+    <span class="logo-currywurst">Curry&shy;wurst</span>
+  </div>
+  <p class="hero-tagline">Eine kuratierte Gesprächsreihe in Düsseldorf.<br>Kein Tech-Hype. Keine Buzzwords.<br>Sondern kulturelle Einordnung.</p>
+  <div class="hero-badge">Speaker-Info</div>
+  <div class="hero-scroll">Scroll</div>
+</section>
+
+<!-- INTRO -->
+<section class="intro fade-in">
+  <p>KI ist kein Tool. Sie ist das neue Betriebssystem für Wertschöpfung, Macht und Kultur.</p>
+  <p>Wir holen KI aus dem Maschinenraum und überführen sie in die Alltagskultur. Denn das Neue denkt man nicht mit Angst. Sondern mit Neugier. <span class="accent">Und mit Currywurst.</span></p>
+</section>
+
+<!-- EINLADUNG -->
+<section class="einladung fade-in">
+  <div class="einladung-inner">
+    <div class="einladung-label">Eine Einladung</div>
+    <h2 class="einladung-headline">Wir suchen die Stimmen der ersten Stunde.</h2>
+    <div class="einladung-text">
+      <p>KI &amp; Currywurst startet 2026 in Düsseldorf. Nicht als weitere Konferenz, sondern als ein Raum, in dem KI ehrlich verhandelt wird — kulturell, persönlich, konkret. Kleine Runde, kuratiertes Publikum, keine Bühnenshow.</p>
+      <p>Für die erste Staffel suchen wir Menschen, die bereit sind, <strong>eine klare Haltung zu vertreten</strong> — nicht als Experten-Performance, sondern als ehrlichen Beitrag. Sechs bis acht Minuten. Ein Standpunkt. Dann Gespräch.</p>
+      <p>Wer jetzt dabei ist, gestaltet mit. Den Ton. Die Haltung. Das, wofür dieses Format steht. <strong>Speaker der ersten Stunde</strong> sind keine Lückenfüller — sie sind der Grund, warum andere kommen wollen.</p>
+    </div>
+  </div>
+</section>
+
+<!-- THEMEN -->
+<section class="section-header fade-in">
+  <h2>Die Themen.</h2>
+  <p class="sub">Vier Abende. Vier Spannungsfelder. Null PowerPoint.</p>
+</section>
+
+<div class="themen">
+
+  <div class="thema fade-in">
+    <div class="thema-nr">Thema 01</div>
+    <p class="thema-problem">Wir machen <b>die schleichende Abhängigkeit von der eigenen KI-Version</b> zum Thema.</p>
+    <h3>Droge KI.</h3>
+    <p class="subline">Mein synthetisches Ich wird immer besser. Zwischen Lüge und einem neuen KI-Selbstverständnis.</p>
+    <div class="thema-label">Kurzbeschreibung</div>
+    <p class="thema-desc">Wer einmal erlebt hat, wie viel besser die eigene Arbeit mit KI wird, kommt davon nicht mehr los. Das Bewerbungsfoto, der Strategietext, die Präsentation — alles überzeugender als das, was man allein produziert. Aber ab wann ist das nicht mehr Werkzeug, sondern Krücke? Und was passiert mit dem Selbstbild, wenn das beste Ich ein synthetisches ist?</p>
+    <div class="thema-label">Welche Stimmen wir suchen</div>
+    <p class="thema-who">Jemand, der die psychologische oder kulturelle Dimension greifen kann — wie KI unser Selbstbild verschiebt. Und eine Gegenstimme, die sagt: Das ist keine Abhängigkeit, das ist Weiterentwicklung.</p>
+  </div>
+
+  <div class="thema fade-in">
+    <div class="thema-nr">Thema 02</div>
+    <p class="thema-problem">Wir machen <b>die Entwertung von Studium und Berufseinstieg durch KI</b> zum Thema.</p>
+    <h3>Studierst du noch oder bist du schon arbeitslos?</h3>
+    <p class="subline">Wie KI dem Nachwuchs an den Kragen geht.</p>
+    <div class="thema-label">Kurzbeschreibung</div>
+    <p class="thema-desc">Sieben Semester Jura, während KI Verträge in Sekunden prüft. Eine Ausbildung zum Mediengestalter mit Tools, die es bei Abschluss nicht mehr gibt. Berufseinsteiger, die mit ChatGPT bessere Texte schreiben als ihre erfahrenen Chefs. Dieses Thema richtet sich auch an die Eltern im Raum: Was rätst du deinem Kind, wenn du selbst keine Antwort hast?</p>
+    <div class="thema-label">Welche Stimmen wir suchen</div>
+    <p class="thema-who">Jemand, der aus Arbeitgeber- oder Ausbildungssicht sieht, was von Berufseinsteigern erwartet wird — und wie KI das gerade verschiebt. Dazu eine Gegenperspektive aus der Hochschulwelt oder von jemandem, der selbst gerade am Anfang steht.</p>
+  </div>
+
+  <div class="thema fade-in">
+    <div class="thema-nr">Thema 03</div>
+    <p class="thema-problem">Wir machen <b>den Wettlauf zwischen verschwindenden Jobprofilen und menschlicher Anpassungsfähigkeit</b> zum Thema.</p>
+    <h3>Karrieresterben oder Self-Transformation — was geht schneller?</h3>
+    <p class="subline">KI setzt uns massiv unter Druck. Wie Agenten unsere Jobs ersetzen. Oder müssen wir uns anders aufstellen?</p>
+    <div class="thema-label">Kurzbeschreibung</div>
+    <p class="thema-desc">KI-Agenten übernehmen nicht einzelne Aufgaben, sondern ganze Rollenprofile. Die Frage ist nicht ob, sondern ob du schneller bist als der Wandel. Self-Transformation klingt nach Empowerment — aber ist es ein Rennen, das jeder gewinnen kann? Oder nur die, die es sich leisten können?</p>
+    <div class="thema-label">Welche Stimmen wir suchen</div>
+    <p class="thema-who">Jemand, der auf Führungsebene sieht, wie Rollenbilder sich auflösen und neu formieren. Und eine Gegenstimme aus der operativen Mitte — jemand, der sich gerade selbst transformiert und ehrlich erzählen kann, was das bedeutet.</p>
+  </div>
+
+  <div class="thema fade-in">
+    <div class="thema-nr">Thema 04</div>
+    <p class="thema-problem">Wir machen <b>den Verlust von Unterscheidbarkeit zwischen echt und generiert im öffentlichen Raum</b> zum Thema.</p>
+    <h3>Deep Fake ist das neue Interface der Welt.</h3>
+    <p class="subline">Oder geht es zurück zur Romantik des Authentischen?</p>
+    <div class="thema-label">Kurzbeschreibung</div>
+    <p class="thema-desc">Synthetische Stimmen, generierte Nachrichtenbilder, geklonte CEOs im Townhall-Video — Deep Fakes sind kein Randphänomen mehr, sondern werden zum Standard-Interface. Die Frage ist nicht mehr, ob wir das aufhalten können, sondern ob der Wunsch nach Echtheit noch realistisch ist — oder bereits Nostalgie.</p>
+    <div class="thema-label">Welche Stimmen wir suchen</div>
+    <p class="thema-who">Jemand, der an Infrastruktur für Medienvertrauen arbeitet — Verifizierung, Standards, digitale Kennung. Und eine Gegenstimme, die glaubwürdig vertritt: Wirkung zählt mehr als Ursprung.</p>
+  </div>
+
+</div>
+
+<!-- FORMAT -->
+<section class="format fade-in">
+  <div class="format-inner">
+    <h2>So funktioniert ein Abend.</h2>
+    <div class="format-grid">
+      <div class="format-item">
+        <h3>Zwei Impulse</h3>
+        <p>Zwei konträre Perspektiven, je 6–8 Minuten. Kein Vortrag, sondern ein pointierter Standpunkt.</p>
+      </div>
+      <div class="format-item">
+        <h3>Moderiertes Gespräch</h3>
+        <p>20–25 Minuten geleitete Reibung zwischen den Perspektiven. Kuratierter Kontrast, keine Harmonie-Simulation.</p>
+      </div>
+      <div class="format-item">
+        <h3>Offener Raum</h3>
+        <p>Q&amp;A und Fragen aus dem Raum. 15–20 Minuten. Das Publikum ist Teil des Gesprächs, nicht Zuschauer.</p>
+      </div>
+      <div class="format-item">
+        <h3>Currywurst</h3>
+        <p>Danach: essen, trinken, weiterreden. Auf Augenhöhe. Per Du. Ohne Namensschilder — Vorname auf Kreppband reicht.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HALTUNG -->
+<section class="haltung fade-in">
+  <p class="haltung-text">Was diesen Raum besonders macht: Er gehört keiner Marke, keinem Sponsor, keinem Ego. Er gehört der Frage.</p>
+  <p class="haltung-details">Ca. 50 Personen · Einladung, nicht Ticketverkauf · Keine Produktpitches auf der Bühne und im Raum · Orte mit Charakter statt Konferenzräume · Verbindlichkeit statt Reichweite</p>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-logo">KI <span>und</span> Currywurst</div>
+  <p class="footer-meta">
+    Eine Veranstaltungsreihe von<br>
+    <a href="#">active value</a> + <a href="#">HumanOSX</a><br><br>
+    Düsseldorf · Buchhandlung Müller &amp; Böhm (Heinehaus)<br>
+    Start: 2026 · Taktung: 1× pro Quartal
+  </p>
+  <div class="footer-hashtag">#kiundcurrywurst</div>
+  <p class="footer-hinweis">Diese Seite ist kein öffentlicher Auftritt, sondern eine Übersicht für Menschen, die wir gerne als Stimme im Raum hätten. Du hast sie bekommen, weil dich jemand aus unserem Kreis empfohlen hat.</p>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
