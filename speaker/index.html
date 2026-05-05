@@ -4,28 +4,24 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>KI und Currywurst — Speaker-Info</title>
-<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Host+Grotesk:wght@400;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <style>
 :root {
-  --curry: #C8912E;
-  --curry-dark: #A67420;
-  --curry-light: #F5E6C8;
-  --ink: #1A1A18;
-  --paper: #F5F0E6;
-  --paper-dark: #EDE5D5;
-  --rust: #B5452A;
-  --forest: #2D5F3A;
-  --cream: #FAF7F0;
-  --text: #2C2C2A;
-  --text-muted: #6B6A65;
+  --font-display: 'Alfa Slab One', serif;
+  --font-ui: 'Host Grotesk', sans-serif;
+  --font-body: 'Libre Baskerville', serif;
+  --color-paper: #EDE8DC;
+  --color-terracotta: #C84B28;
+  --color-ink: #1C1A18;
+  --color-mustard: #D4A020;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
-  font-family: 'DM Sans', sans-serif;
-  background: var(--paper);
-  color: var(--text);
+  font-family: var(--font-body);
+  background: var(--color-paper);
+  color: var(--color-ink);
   overflow-x: hidden;
 }
 
@@ -48,54 +44,45 @@ body::before {
   align-items: center;
   padding: 60px 24px;
   position: relative;
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--color-paper);
+  color: var(--color-ink);
 }
 
 .logo {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  line-height: 0.9;
+  width: fit-content;
   margin-bottom: 48px;
   animation: fadeUp 1s ease-out;
 }
 
 .logo-ki {
-  font-family: 'Space Mono', monospace;
-  font-weight: 700;
-  font-size: clamp(80px, 15vw, 160px);
-  line-height: 0.85;
-  letter-spacing: -0.03em;
-  color: var(--curry);
-  display: block;
+  font-family: var(--font-display);
+  font-size: 2.8rem;
+  color: var(--color-terracotta);
+  text-transform: uppercase;
 }
 
 .logo-und {
-  font-family: 'Libre Baskerville', serif;
+  font-family: var(--font-ui);
   font-weight: 400;
-  font-style: italic;
-  font-size: clamp(20px, 3.5vw, 36px);
-  color: var(--paper);
-  opacity: 0.6;
-  display: block;
-  margin: 8px 0;
-  letter-spacing: 0.15em;
+  font-size: 1.1rem;
+  color: var(--color-ink);
+  padding-left: 2px;
 }
 
 .logo-currywurst {
-  font-family: 'Space Mono', monospace;
-  font-weight: 700;
-  font-size: clamp(36px, 7vw, 76px);
-  line-height: 0.95;
-  letter-spacing: -0.02em;
-  color: var(--paper);
-  display: block;
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  color: var(--color-mustard);
 }
 
 .hero-tagline {
-  font-family: 'Libre Baskerville', serif;
+  font-family: var(--font-ui);
   font-size: clamp(16px, 2.2vw, 22px);
   font-style: italic;
-  color: var(--paper);
-  opacity: 0.5;
+  color: var(--color-ink);
   text-align: center;
   max-width: 500px;
   line-height: 1.6;
@@ -106,12 +93,12 @@ body::before {
   display: inline-block;
   margin-top: 32px;
   padding: 8px 20px;
-  border: 1px solid var(--curry);
-  color: var(--curry);
-  font-family: 'Space Mono', monospace;
+  border: 1px solid var(--color-terracotta);
+  color: var(--color-terracotta);
+  font-family: var(--font-ui);
   font-size: 11px;
   font-weight: 700;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   animation: fadeUp 1s ease-out 0.5s both;
 }
@@ -121,12 +108,11 @@ body::before {
   bottom: 40px;
   left: 50%;
   transform: translateX(-50%);
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-ui);
   font-size: 12px;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--paper);
-  opacity: 0.3;
+  color: var(--color-terracotta);
   animation: pulse 2s ease-in-out infinite;
 }
 
@@ -139,10 +125,10 @@ body::before {
 }
 
 .intro p {
-  font-family: 'Libre Baskerville', serif;
+  font-family: var(--font-body);
   font-size: clamp(18px, 2.5vw, 24px);
   line-height: 1.8;
-  color: var(--text);
+  color: var(--color-ink);
   margin-bottom: 28px;
 }
 
@@ -151,15 +137,15 @@ body::before {
 }
 
 .intro .accent {
-  color: var(--rust);
+  color: var(--color-mustard);
   font-weight: 700;
   font-style: normal;
 }
 
 /* ── EINLADUNG ── */
 .einladung {
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--color-ink);
+  color: var(--color-paper);
   padding: 80px 24px;
   position: relative;
 }
@@ -171,7 +157,7 @@ body::before {
   left: 10%;
   right: 10%;
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--curry), transparent);
+  background: var(--color-mustard);
 }
 
 .einladung-inner {
@@ -180,31 +166,29 @@ body::before {
 }
 
 .einladung-label {
-  font-family: 'Space Mono', monospace;
+  font-family: var(--font-ui);
   font-weight: 700;
   font-size: 11px;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--curry);
+  color: var(--color-terracotta);
   margin-bottom: 28px;
 }
 
 .einladung-headline {
-  font-family: 'Space Mono', monospace;
-  font-weight: 700;
+  font-family: var(--font-display);
+  font-weight: 400;
   font-size: clamp(24px, 4vw, 38px);
   line-height: 1.2;
-  letter-spacing: -0.02em;
-  color: var(--paper);
+  color: var(--color-paper);
   margin-bottom: 32px;
 }
 
 .einladung-text {
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-body);
   font-size: 16px;
   line-height: 1.85;
-  color: var(--paper);
-  opacity: 0.7;
+  color: var(--color-paper);
 }
 
 .einladung-text p {
@@ -216,8 +200,7 @@ body::before {
 }
 
 .einladung-text strong {
-  color: var(--paper);
-  opacity: 1;
+  color: var(--color-paper);
   font-weight: 700;
 }
 
@@ -228,19 +211,18 @@ body::before {
 }
 
 .section-header h2 {
-  font-family: 'Space Mono', monospace;
-  font-weight: 700;
+  font-family: var(--font-display);
+  font-weight: 400;
   font-size: clamp(28px, 5vw, 48px);
-  color: var(--ink);
-  letter-spacing: -0.02em;
+  color: var(--color-terracotta);
   line-height: 1.1;
 }
 
 .section-header .sub {
-  font-family: 'Libre Baskerville', serif;
+  font-family: var(--font-body);
   font-style: italic;
   font-size: 16px;
-  color: var(--text-muted);
+  color: var(--color-ink);
   margin-top: 12px;
 }
 
@@ -259,104 +241,99 @@ body::before {
 }
 
 .thema {
-  background: var(--cream);
-  border: 1px solid rgba(0,0,0,0.08);
+  background: var(--color-paper);
+  border: 1px solid rgba(28,26,24,0.12);
   padding: 40px 36px;
   position: relative;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
 .thema:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(0,0,0,0.08);
 }
 
 .thema-nr {
-  font-family: 'Space Mono', monospace;
+  font-family: var(--font-ui);
   font-weight: 700;
   font-size: 11px;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--text-muted);
+  color: var(--color-terracotta);
   margin-bottom: 16px;
 }
 
 .thema-problem {
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-body);
   font-size: 13px;
-  color: var(--text-muted);
+  color: var(--color-ink);
   margin-bottom: 16px;
   line-height: 1.5;
   padding-bottom: 16px;
-  border-bottom: 1px solid rgba(0,0,0,0.06);
+  border-bottom: 1px solid rgba(28,26,24,0.12);
 }
 
 .thema-problem b {
-  color: var(--text);
+  color: var(--color-ink);
   font-weight: 700;
 }
 
 .thema h3 {
-  font-family: 'Space Mono', monospace;
+  font-family: var(--font-ui);
   font-weight: 700;
   font-size: clamp(20px, 2.5vw, 26px);
   line-height: 1.2;
-  color: var(--ink);
+  color: var(--color-ink);
   margin-bottom: 8px;
-  letter-spacing: -0.02em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .thema .subline {
-  font-family: 'Libre Baskerville', serif;
+  font-family: var(--font-body);
   font-style: italic;
   font-size: 15px;
-  color: var(--text-muted);
+  color: var(--color-ink);
   line-height: 1.5;
   margin-bottom: 24px;
 }
 
 .thema-label {
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-ui);
   font-size: 10px;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--text-muted);
+  color: var(--color-terracotta);
   margin: 20px 0 8px;
 }
 
 .thema-desc {
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-body);
   font-size: 14px;
   line-height: 1.7;
-  color: var(--text);
+  color: var(--color-ink);
 }
 
 .thema-who {
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-body);
   font-size: 14px;
   line-height: 1.6;
-  color: var(--text-muted);
+  color: var(--color-ink);
 }
 
 .thema-who strong {
-  color: var(--text);
+  color: var(--color-ink);
 }
 
 /* Color accents per theme */
-.thema:nth-child(1) { border-top: 4px solid var(--curry); }
-.thema:nth-child(2) { border-top: 4px solid var(--rust); }
-.thema:nth-child(3) { border-top: 4px solid var(--ink); }
-.thema:nth-child(4) { border-top: 4px solid var(--forest); }
-
-.thema:nth-child(1) .thema-nr { color: var(--curry-dark); }
-.thema:nth-child(2) .thema-nr { color: var(--rust); }
-.thema:nth-child(3) .thema-nr { color: var(--ink); }
-.thema:nth-child(4) .thema-nr { color: var(--forest); }
+.thema:nth-child(1) { border-top: 4px solid var(--color-terracotta); }
+.thema:nth-child(2) { border-top: 4px solid var(--color-mustard); }
+.thema:nth-child(3) { border-top: 4px solid var(--color-ink); }
+.thema:nth-child(4) { border-top: 4px solid var(--color-terracotta); }
 
 /* ── FORMAT ── */
 .format {
-  background: var(--paper-dark);
+  background: rgba(28,26,24,0.05);
   padding: 80px 24px;
 }
 
@@ -366,11 +343,10 @@ body::before {
 }
 
 .format h2 {
-  font-family: 'Space Mono', monospace;
-  font-weight: 700;
+  font-family: var(--font-display);
+  font-weight: 400;
   font-size: clamp(24px, 4vw, 36px);
-  color: var(--ink);
-  letter-spacing: -0.02em;
+  color: var(--color-terracotta);
   margin-bottom: 48px;
   text-align: center;
 }
@@ -387,22 +363,23 @@ body::before {
 
 .format-item {
   padding-left: 20px;
-  border-left: 3px solid var(--curry);
+  border-left: 3px solid var(--color-mustard);
 }
 
 .format-item h3 {
-  font-family: 'Space Mono', monospace;
+  font-family: var(--font-ui);
   font-weight: 700;
   font-size: 15px;
-  color: var(--ink);
+  color: var(--color-ink);
   margin-bottom: 8px;
-  letter-spacing: -0.01em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .format-item p {
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-body);
   font-size: 14px;
-  color: var(--text-muted);
+  color: var(--color-ink);
   line-height: 1.7;
 }
 
@@ -415,76 +392,77 @@ body::before {
 }
 
 .haltung-text {
-  font-family: 'Libre Baskerville', serif;
+  font-family: var(--font-body);
   font-size: clamp(18px, 2.5vw, 24px);
   line-height: 1.7;
-  color: var(--text);
+  color: var(--color-ink);
   margin-bottom: 28px;
 }
 
 .haltung-details {
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-body);
   font-size: 14px;
-  color: var(--text-muted);
+  color: var(--color-ink);
   line-height: 2;
 }
 
 /* ── FOOTER ── */
 .footer {
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--color-ink);
+  color: var(--color-paper);
   padding: 80px 24px;
   text-align: center;
 }
 
 .footer-logo {
-  font-family: 'Space Mono', monospace;
-  font-weight: 700;
+  font-family: var(--font-display);
+  font-weight: 400;
   font-size: 24px;
-  color: var(--curry);
+  color: var(--color-terracotta);
   margin-bottom: 8px;
 }
 
 .footer-logo span {
-  color: var(--paper);
-  opacity: 0.6;
+  color: var(--color-paper);
   font-size: 14px;
-  font-family: 'Libre Baskerville', serif;
-  font-style: italic;
+  font-family: var(--font-ui);
   font-weight: 400;
 }
 
 .footer-meta {
+  font-family: var(--font-ui);
   font-size: 13px;
-  color: var(--paper);
-  opacity: 0.35;
+  color: var(--color-paper);
   margin-top: 24px;
   line-height: 1.8;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .footer-meta a {
-  color: var(--curry);
+  background: var(--color-mustard);
+  color: var(--color-ink);
   text-decoration: none;
-  opacity: 1;
+  padding: 2px 6px;
 }
 
 .footer-hashtag {
-  font-family: 'Space Mono', monospace;
+  font-family: var(--font-ui);
   font-size: 14px;
-  color: var(--curry);
+  color: var(--color-mustard);
   margin-top: 32px;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .footer-hinweis {
   margin-top: 40px;
   padding-top: 32px;
-  border-top: 1px solid rgba(255,255,255,0.08);
-  font-family: 'Libre Baskerville', serif;
+  border-top: 1px solid rgba(237,232,220,0.16);
+  font-family: var(--font-body);
   font-style: italic;
   font-size: 13px;
-  color: var(--paper);
-  opacity: 0.35;
+  color: var(--color-paper);
   line-height: 1.8;
   max-width: 480px;
   margin-left: auto;
