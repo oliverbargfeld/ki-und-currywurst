@@ -10,47 +10,42 @@
   --font-display: 'Alfa Slab One', serif;
   --font-ui: 'Host Grotesk', sans-serif;
   --font-body: 'Libre Baskerville', serif;
-  --paper: #EDE8DC;
-  --terracotta: #C84B28;
-  --ink: #1C1A18;
-  --mustard: #D4A020;
+  --color-paper: #EDE8DC;
+  --color-terracotta: #C84B28;
+  --color-ink: #1C1A18;
+  --color-mustard: #D4A020;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
-html {
-  background: var(--paper);
-}
-
 body {
-  font-family: var(--font-ui);
-  background: var(--paper);
-  color: var(--ink);
+  font-family: var(--font-body);
+  background: var(--color-paper);
+  color: var(--color-ink);
   overflow-x: hidden;
 }
 
+/* Paper texture overlay */
 body::before {
   content: '';
   position: fixed;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='grain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.78' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23grain)' opacity='0.05'/%3E%3C/svg%3E");
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
   pointer-events: none;
   z-index: 1000;
 }
 
-a {
-  color: inherit;
-}
-
-.site-nav {
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  gap: 24px;
-  padding: 20px 24px;
-  border-bottom: 2px solid var(--ink);
+  padding: 60px 24px;
   position: relative;
-  z-index: 2;
+  background: var(--color-paper);
+  color: var(--color-ink);
 }
 
 .logo {
@@ -58,208 +53,59 @@ a {
   flex-direction: column;
   line-height: 0.9;
   width: fit-content;
+  margin-bottom: 48px;
+  animation: fadeUp 1s ease-out;
 }
 
 .logo-ki {
   font-family: var(--font-display);
   font-size: 2.8rem;
-  color: var(--terracotta);
+  color: var(--color-terracotta);
   text-transform: uppercase;
 }
 
 .logo-und {
-  font-family: var(--font-display);
-  font-size: 1.1rem;
-  color: var(--ink);
+  font-family: var(--font-ui);
   font-weight: 400;
+  font-size: 1.1rem;
+  color: var(--color-ink);
   padding-left: 2px;
 }
 
 .logo-currywurst {
   font-family: var(--font-display);
   font-size: 1.8rem;
-  color: var(--mustard);
-}
-
-.partner-lockup {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-family: var(--font-ui);
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.partner-x {
-  font-size: 20px;
-  color: var(--terracotta);
-}
-
-.partner-logo {
-  width: 138px;
-  height: 42px;
-  display: block;
-}
-
-.human-logo {
-  width: 130px;
-}
-
-.partner-footer .partner-logo {
-  background: var(--paper);
-  border: 1px solid var(--paper);
-}
-
-/* HERO */
-.hero {
-  min-height: calc(100vh - 92px);
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(320px, 520px);
-  align-items: stretch;
-  position: relative;
-  border-bottom: 2px solid var(--ink);
-}
-
-.hero-copy {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: clamp(56px, 8vw, 120px) 24px clamp(72px, 8vw, 120px);
-  align-items: center;
-}
-
-.hero .logo {
-  animation: fadeUp 1s ease-out;
-}
-
-.hero .logo-ki {
-  font-size: clamp(88px, 15vw, 190px);
-}
-
-.hero .logo-und {
-  font-size: clamp(28px, 4vw, 48px);
-}
-
-.hero .logo-currywurst {
-  font-size: clamp(46px, 8vw, 92px);
-}
-
-.hero-panel {
-  background: var(--terracotta);
-  color: var(--paper);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 28px;
-  padding: clamp(44px, 6vw, 80px) clamp(28px, 5vw, 56px);
-  border-left: 2px solid var(--ink);
-  position: relative;
-  overflow: hidden;
-}
-
-.hero-panel::before {
-  content: '02';
-  position: absolute;
-  right: -20px;
-  top: -28px;
-  font-family: var(--font-display);
-  font-size: clamp(140px, 20vw, 260px);
-  color: var(--paper);
-  opacity: 0.08;
-  line-height: 1;
-}
-
-.event-date {
-  font-family: var(--font-display);
-  font-size: clamp(34px, 5vw, 64px);
-  line-height: 1.05;
-  color: var(--mustard);
-  position: relative;
-  z-index: 1;
+  color: var(--color-mustard);
 }
 
 .hero-tagline {
   font-family: var(--font-ui);
-  font-size: clamp(18px, 2.2vw, 24px);
+  font-size: clamp(16px, 2.2vw, 22px);
   font-style: italic;
-  color: var(--paper);
-  line-height: 1.45;
-  max-width: 520px;
-  position: relative;
-  z-index: 1;
-}
-
-.sticker-row {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  gap: 14px;
-  position: relative;
-  z-index: 1;
-}
-
-.sticker {
-  display: inline-block;
-  padding: 10px 14px;
-  border: 2px solid var(--ink);
-  font-family: var(--font-display);
-  font-size: clamp(16px, 2vw, 22px);
-  line-height: 1;
-  text-transform: uppercase;
-}
-
-.sticker-tech {
-  background: var(--terracotta);
-  color: var(--paper);
-  transform: rotate(-1.5deg);
-}
-
-.sticker-du {
-  background: var(--mustard);
-  color: var(--ink);
-  transform: rotate(1.5deg);
+  color: var(--color-ink);
+  text-align: center;
+  max-width: 500px;
+  line-height: 1.6;
+  animation: fadeUp 1s ease-out 0.3s both;
 }
 
 .hero-scroll {
   position: absolute;
-  bottom: 24px;
-  left: 24px;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
   font-family: var(--font-ui);
   font-size: 12px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--terracotta);
+  color: var(--color-terracotta);
   animation: pulse 2s ease-in-out infinite;
 }
 
-.squiggle-divider {
-  width: 100%;
-  padding: 34px 0 30px;
-  overflow: hidden;
-  background: var(--paper);
-}
-
-.squiggle-divider svg {
-  display: block;
-  width: 130%;
-  min-width: 760px;
-  height: 54px;
-  margin-left: -15%;
-}
-
-.squiggle-divider path {
-  fill: none;
-  stroke: var(--terracotta);
-  stroke-width: 8;
-  stroke-linecap: round;
-}
-
-/* INTRO */
+/* ── INTRO ── */
 .intro {
-  padding: 82px 24px 96px;
-  max-width: 780px;
+  padding: 120px 24px;
+  max-width: 720px;
   margin: 0 auto;
   animation: fadeUp 0.8s ease-out;
 }
@@ -268,7 +114,7 @@ a {
   font-family: var(--font-body);
   font-size: clamp(18px, 2.5vw, 24px);
   line-height: 1.8;
-  color: var(--ink);
+  color: var(--color-ink);
   margin-bottom: 28px;
 }
 
@@ -277,87 +123,67 @@ a {
 }
 
 .intro .accent {
-  color: var(--mustard);
+  color: var(--color-mustard);
   font-weight: 700;
   font-style: normal;
 }
 
-/* SECTION HEADER */
+/* ── SECTION HEADER ── */
 .section-header {
-  padding: 82px 24px 40px;
+  padding: 80px 24px 40px;
   text-align: center;
-  border-top: 2px solid var(--ink);
 }
 
 .section-header h2 {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(34px, 6vw, 66px);
-  color: var(--terracotta);
-  line-height: 1.05;
+  font-size: clamp(28px, 5vw, 48px);
+  color: var(--color-terracotta);
+  line-height: 1.1;
 }
 
 .section-header .sub {
   font-family: var(--font-body);
   font-style: italic;
   font-size: 16px;
-  color: var(--ink);
+  color: var(--color-ink);
   margin-top: 12px;
 }
 
-.taster-badge {
-  display: inline-block;
-  margin-top: 18px;
-  padding: 9px 14px;
-  border: 2px solid var(--ink);
-  background: var(--mustard);
-  color: var(--ink);
-  font-family: var(--font-display);
-  font-size: 13px;
-  line-height: 1;
+.section-header .note {
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  transform: rotate(-1deg);
+  color: var(--color-terracotta);
+  margin-top: 14px;
 }
 
-/* THEMEN GRID */
+/* ── THEMEN GRID ── */
 .themen {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 20px 24px 110px;
+  padding: 20px 24px 120px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 24px;
 }
 
+@media (max-width: 768px) {
+  .themen { grid-template-columns: 1fr; }
+}
+
 .thema {
-  background: var(--paper);
-  border: 2px solid var(--ink);
-  padding: 42px 36px;
+  background: var(--color-paper);
+  border: 1px solid rgba(28,26,24,0.12);
+  padding: 40px 36px;
   position: relative;
-  overflow: hidden;
   transition: transform 0.3s ease;
 }
 
 .thema:hover {
-  transform: rotate(-0.5deg) translateY(-3px);
-}
-
-.thema::before {
-  content: attr(data-number);
-  position: absolute;
-  right: 12px;
-  top: -10px;
-  font-family: var(--font-display);
-  font-size: clamp(96px, 14vw, 170px);
-  line-height: 1;
-  color: var(--terracotta);
-  opacity: 0.1;
-  pointer-events: none;
-}
-
-.thema > * {
-  position: relative;
-  z-index: 1;
+  transform: translateY(-4px);
 }
 
 .thema-nr {
@@ -366,22 +192,22 @@ a {
   font-size: 11px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--terracotta);
+  color: var(--color-terracotta);
   margin-bottom: 16px;
 }
 
 .thema-problem {
   font-family: var(--font-body);
   font-size: 13px;
-  color: var(--ink);
+  color: var(--color-ink);
   margin-bottom: 16px;
   line-height: 1.5;
   padding-bottom: 16px;
-  border-bottom: 1px solid rgba(28,26,24,0.18);
+  border-bottom: 1px solid rgba(28,26,24,0.12);
 }
 
 .thema-problem b {
-  color: var(--ink);
+  color: var(--color-ink);
   font-weight: 700;
 }
 
@@ -390,7 +216,7 @@ a {
   font-weight: 700;
   font-size: clamp(20px, 2.5vw, 26px);
   line-height: 1.2;
-  color: var(--ink);
+  color: var(--color-ink);
   margin-bottom: 8px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -400,7 +226,7 @@ a {
   font-family: var(--font-body);
   font-style: italic;
   font-size: 15px;
-  color: var(--ink);
+  color: var(--color-ink);
   line-height: 1.5;
   margin-bottom: 24px;
 }
@@ -411,7 +237,7 @@ a {
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--terracotta);
+  color: var(--color-terracotta);
   margin: 20px 0 8px;
 }
 
@@ -419,99 +245,76 @@ a {
   font-family: var(--font-body);
   font-size: 14px;
   line-height: 1.7;
-  color: var(--ink);
+  color: var(--color-ink);
 }
 
 .thema-who {
-  font-family: var(--font-ui);
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.03em;
-  line-height: 1.65;
-  color: var(--ink);
-  text-transform: uppercase;
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--color-ink);
 }
 
-.thema:nth-child(1) { border-top: 8px solid var(--terracotta); }
-.thema:nth-child(2) { border-top: 8px solid var(--mustard); }
-.thema:nth-child(3) { border-top: 8px solid var(--ink); }
-.thema:nth-child(4) { border-top: 8px solid var(--terracotta); }
+.thema-who strong {
+  color: var(--color-ink);
+}
 
-/* FOOTER */
+/* Color accents per theme */
+.thema:nth-child(1) { border-top: 4px solid var(--color-terracotta); }
+.thema:nth-child(2) { border-top: 4px solid var(--color-mustard); }
+.thema:nth-child(3) { border-top: 4px solid var(--color-ink); }
+.thema:nth-child(4) { border-top: 4px solid var(--color-terracotta); }
+
+/* ── FOOTER ── */
 .footer {
-  background: var(--ink);
-  color: var(--paper);
-  padding: 76px 24px;
+  background: var(--color-ink);
+  color: var(--color-paper);
+  padding: 80px 24px;
   text-align: center;
-}
-
-.footer-brand {
-  display: grid;
-  justify-items: center;
-  gap: 28px;
 }
 
 .footer-logo {
   font-family: var(--font-display);
   font-weight: 400;
   font-size: 24px;
-  color: var(--terracotta);
+  color: var(--color-terracotta);
   margin-bottom: 8px;
 }
 
 .footer-logo span {
-  color: var(--paper);
+  color: var(--color-paper);
   font-size: 14px;
-  font-family: var(--font-display);
+  font-family: var(--font-ui);
   font-weight: 400;
 }
 
 .footer-meta {
   font-family: var(--font-ui);
   font-size: 13px;
-  color: var(--paper);
-  margin-top: 28px;
+  color: var(--color-paper);
+  margin-top: 24px;
   line-height: 1.8;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
+.footer-meta a {
+  background: var(--color-mustard);
+  color: var(--color-ink);
+  text-decoration: none;
+  padding: 2px 6px;
+}
+
 .footer-hashtag {
   font-family: var(--font-ui);
   font-size: 14px;
-  color: var(--mustard);
+  color: var(--color-mustard);
   margin-top: 32px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
-@media (max-width: 860px) {
-  .site-nav {
-    align-items: flex-start;
-    flex-direction: column;
-  }
-
-  .partner-lockup {
-    flex-wrap: wrap;
-  }
-
-  .hero {
-    grid-template-columns: 1fr;
-  }
-
-  .hero-panel {
-    border-left: 0;
-    border-top: 2px solid var(--ink);
-  }
-}
-
-@media (max-width: 768px) {
-  .themen {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* ANIMATIONS */
+/* ── ANIMATIONS ── */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(30px); }
   to { opacity: 1; transform: translateY(0); }
@@ -536,55 +339,16 @@ a {
 </head>
 <body>
 
-<header class="site-nav">
+<!-- HERO -->
+<section class="hero">
   <div class="logo">
     <span class="logo-ki">KI</span>
     <span class="logo-und">und</span>
     <span class="logo-currywurst">Curry&shy;wurst</span>
   </div>
-  <div class="partner-lockup" aria-label="Partner">
-    <svg class="partner-logo active-value-logo" viewBox="0 0 180 54" role="img" aria-label="active value">
-      <rect width="180" height="54" fill="#6AB42B"/>
-      <path d="M14 18 L28 30 L42 18 L56 30 L70 18" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M14 32 L28 44 L42 32 L56 44 L70 32" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-      <text x="84" y="24" fill="#FFFFFF" font-family="Host Grotesk, Arial, sans-serif" font-size="14" font-weight="700">active</text>
-      <text x="84" y="40" fill="#FFFFFF" font-family="Host Grotesk, Arial, sans-serif" font-size="14" font-weight="700">value</text>
-    </svg>
-    <span class="partner-x">×</span>
-    <svg class="partner-logo human-logo" viewBox="0 0 180 54" role="img" aria-label="HumanOSX">
-      <circle cx="27" cy="27" r="20" fill="none" stroke="#1C1A18" stroke-width="4"/>
-      <circle cx="27" cy="21" r="6" fill="#1C1A18"/>
-      <path d="M16 40 C18 31 36 31 38 40" fill="#1C1A18"/>
-      <text x="58" y="33" fill="#1C1A18" font-family="Host Grotesk, Arial, sans-serif" font-size="20" font-weight="700">HumanOSX</text>
-    </svg>
-  </div>
-</header>
-
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-copy">
-    <div class="logo">
-      <span class="logo-ki">KI</span>
-      <span class="logo-und">und</span>
-      <span class="logo-currywurst">Curry&shy;wurst</span>
-    </div>
-  </div>
-  <aside class="hero-panel">
-    <p class="event-date">02. Juli 2026</p>
-    <p class="hero-tagline">Eine kuratierte Gesprächsreihe in Düsseldorf.<br>Kein Tech-Hype. Keine Buzzwords.<br>Sondern kulturelle Einordnung.</p>
-    <div class="sticker-row">
-      <span class="sticker sticker-tech">Kein Tech-Hype.</span>
-      <span class="sticker sticker-du">Alle per Du ab der Tür.</span>
-    </div>
-  </aside>
+  <p class="hero-tagline">Eine kuratierte Gesprächsreihe in Düsseldorf.<br>Kein Tech-Hype. Keine Buzzwords.<br>Sondern kulturelle Einordnung.</p>
   <div class="hero-scroll">Scroll</div>
 </section>
-
-<div class="squiggle-divider" aria-hidden="true">
-  <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
-    <path d="M0,30 Q75,5 150,30 Q225,55 300,30 Q375,5 450,30 Q525,55 600,30 Q675,5 750,30 Q825,55 900,30 Q975,5 1050,30 Q1125,55 1200,30"/>
-  </svg>
-</div>
 
 <!-- INTRO -->
 <section class="intro fade-in">
@@ -592,22 +356,16 @@ a {
   <p>Wir holen KI aus dem Maschinenraum und überführen sie in die Alltagskultur. Denn das Neue denkt man nicht mit Angst. Sondern mit Neugier. <span class="accent">Und mit Currywurst.</span></p>
 </section>
 
-<div class="squiggle-divider" aria-hidden="true">
-  <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
-    <path d="M0,30 Q75,55 150,30 Q225,5 300,30 Q375,55 450,30 Q525,5 600,30 Q675,55 750,30 Q825,5 900,30 Q975,55 1050,30 Q1125,5 1200,30"/>
-  </svg>
-</div>
-
 <!-- THEMEN -->
 <section class="section-header fade-in">
   <h2>Die Themen.</h2>
   <p class="sub">Vier Abende. Vier Spannungsfelder. Null PowerPoint.</p>
-  <p class="taster-badge">Geschmacksproben — kein gesetztes Line-up</p>
+  <p class="note">Geschmacksproben — kein gesetztes Line-up</p>
 </section>
 
 <div class="themen">
 
-  <div class="thema fade-in" data-number="01">
+  <div class="thema fade-in">
     <div class="thema-nr">Thema 01</div>
     <p class="thema-problem">Wir machen <b>die schleichende Abhängigkeit von der eigenen KI-Version</b> zum Thema.</p>
     <h3>Droge KI.</h3>
@@ -618,7 +376,7 @@ a {
     <p class="thema-who">Perspektiven: Psychologie / Kulturkritik — Praxis / Alltagserfahrung</p>
   </div>
 
-  <div class="thema fade-in" data-number="02">
+  <div class="thema fade-in">
     <div class="thema-nr">Thema 02</div>
     <p class="thema-problem">Wir machen <b>die Entwertung von Studium und Berufseinstieg durch KI</b> zum Thema.</p>
     <h3>Studierst du noch oder bist du schon arbeitslos?</h3>
@@ -629,7 +387,7 @@ a {
     <p class="thema-who">Perspektiven: Arbeitgeberseite / Recruiting — Hochschule / Lehre — Nachwuchs / Berufseinstieg</p>
   </div>
 
-  <div class="thema fade-in" data-number="03">
+  <div class="thema fade-in">
     <div class="thema-nr">Thema 03</div>
     <p class="thema-problem">Wir machen <b>den Wettlauf zwischen verschwindenden Jobprofilen und menschlicher Anpassungsfähigkeit</b> zum Thema.</p>
     <h3>Karrieresterben oder Self-Transformation — was geht schneller?</h3>
@@ -640,7 +398,7 @@ a {
     <p class="thema-who">Perspektiven: C-Level / Führung — Operative Transformation — HR / People</p>
   </div>
 
-  <div class="thema fade-in" data-number="04">
+  <div class="thema fade-in">
     <div class="thema-nr">Thema 04</div>
     <p class="thema-problem">Wir machen <b>den Verlust von Unterscheidbarkeit zwischen echt und generiert im öffentlichen Raum</b> zum Thema.</p>
     <h3>Deep Fake ist das neue Interface der Welt.</h3>
@@ -653,37 +411,12 @@ a {
 
 </div>
 
-<div class="squiggle-divider" aria-hidden="true">
-  <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
-    <path d="M0,30 Q75,5 150,30 Q225,55 300,30 Q375,5 450,30 Q525,55 600,30 Q675,5 750,30 Q825,55 900,30 Q975,5 1050,30 Q1125,55 1200,30"/>
-  </svg>
-</div>
-
 <!-- FOOTER -->
 <footer class="footer">
-  <div class="footer-brand">
-    <div class="footer-logo">KI <span>und</span> Currywurst</div>
-    <div class="partner-lockup partner-footer" aria-label="Partner">
-      <svg class="partner-logo active-value-logo" viewBox="0 0 180 54" role="img" aria-label="active value">
-        <rect width="180" height="54" fill="#6AB42B"/>
-        <path d="M14 18 L28 30 L42 18 L56 30 L70 18" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M14 32 L28 44 L42 32 L56 44 L70 32" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-        <text x="84" y="24" fill="#FFFFFF" font-family="Host Grotesk, Arial, sans-serif" font-size="14" font-weight="700">active</text>
-        <text x="84" y="40" fill="#FFFFFF" font-family="Host Grotesk, Arial, sans-serif" font-size="14" font-weight="700">value</text>
-      </svg>
-      <span class="partner-x">×</span>
-      <svg class="partner-logo human-logo" viewBox="0 0 180 54" role="img" aria-label="HumanOSX">
-        <rect width="180" height="54" fill="#EDE8DC"/>
-        <circle cx="27" cy="27" r="20" fill="none" stroke="#1C1A18" stroke-width="4"/>
-        <circle cx="27" cy="21" r="6" fill="#1C1A18"/>
-        <path d="M16 40 C18 31 36 31 38 40" fill="#1C1A18"/>
-        <text x="58" y="33" fill="#1C1A18" font-family="Host Grotesk, Arial, sans-serif" font-size="20" font-weight="700">HumanOSX</text>
-      </svg>
-    </div>
-  </div>
+  <div class="footer-logo">KI <span>und</span> Currywurst</div>
   <p class="footer-meta">
     Eine Veranstaltungsreihe von<br>
-    active value × HumanOSX<br><br>
+    <a href="#">active value</a> + <a href="#">HumanOSX</a><br><br>
     Düsseldorf · Buchhandlung Müller & Böhm (Heinehaus)<br>
     02. Juli 2026 · Taktung: 1× pro Quartal
   </p>
